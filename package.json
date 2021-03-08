@@ -18,5 +18,6 @@
   "bugs": {
     "url": "https://github.com/and-cru/stratosphere/issues"
   },
-  "homepage": "https://github.com/and-cru/stratosphere#readme"
+  "homepage": "https://github.com/and-cru/stratosphere#readme",
+  "type": "module"
 }
