@@ -1,0 +1,22 @@
+{
+  "name": "stratosphere",
+  "version": "1.0.0",
+  "description": "A simple NodeJS library to generate CFN templates",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/and-cru/stratosphere.git"
+  },
+  "keywords": [
+    "CloudFormation"
+  ],
+  "author": "Pedre Viljoen",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/and-cru/stratosphere/issues"
+  },
+  "homepage": "https://github.com/and-cru/stratosphere#readme"
+}
