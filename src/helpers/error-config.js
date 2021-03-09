@@ -1,4 +1,4 @@
-export  default {
+module.exports = {
   ResourceErrorCode: {
     INVALID_PROPS: 2,
     MISSING_REQUIRED_PROPS: 3,

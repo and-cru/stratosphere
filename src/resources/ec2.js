@@ -1,7 +1,9 @@
-import Resource from '../utils/resource.js'
-import config from '../helpers/config.js'
+'use strict'
 
-export class Instance extends Resource {
+const Resource = require('../utils/resource.js' );
+const config = require('../helpers/config.js'); 
+
+class Instance extends Resource {
     constructor (name = '') {
         super('AWS::EC2::Instance')
         this.name = name
@@ -32,4 +34,8 @@ export class Instance extends Resource {
         
         return defintion
     }
+}
+
+module.exports = {
+    Instance
 }

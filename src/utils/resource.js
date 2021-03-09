@@ -1,6 +1,8 @@
-import { validateAndSanitise, extractRequiredProps, checkForRequiredProps } from '../utils/helper-funcs.js'
+'use strict'
+const { validateAndSanitise, extractRequiredProps, checkForRequiredProps } = require('../utils/helper-funcs'); 
 const SANITISED_MESSAGE='Could not validate properties, please check if the provided properties are valid and if a required property is missing'
-export default class Resource {
+
+class Resource {
     constructor (type = '') {
         this.type = type
     }
@@ -25,4 +27,8 @@ export default class Resource {
 
         return newProps
     }
+}
+
+module.exports = {
+    Resource
 }

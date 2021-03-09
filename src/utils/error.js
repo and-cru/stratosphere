@@ -1,4 +1,5 @@
-export class ResourceError extends Error {
+'use strict';
+class ResourceError extends Error {
     constructor(description, code, fix) {
         super(description);
         Object.setPrototypeOf(this, new.target.prototype);
@@ -8,7 +9,7 @@ export class ResourceError extends Error {
     }
 }
 
-export class TemplateError extends Error {
+class TemplateError extends Error {
     constructor(description, code, fix) {
         super(description);
         Object.setPrototypeOf(this, new.target.prototype);
@@ -16,4 +17,9 @@ export class TemplateError extends Error {
         this.code = code;
         this.fix = fix;
     }
+}
+
+module.exports = {
+    ResourceError,
+    TemplateError
 }

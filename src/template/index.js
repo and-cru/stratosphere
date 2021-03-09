@@ -1,8 +1,10 @@
-import { generateJSON, generateYAML } from "../utils/helper-funcs.js";
-import { TemplateError } from "../utils/error.js"
-import ErrorCodes from "../helpers/error-config.js";
+'use strict';
 
-export default class Template {
+const { generateJSON, generateYAML } = require("../utils/helper-funcs");
+const { TemplateError } = require("../utils/error");
+const ErrorCodes = require("../helpers/error-config");
+
+class Template {
   constructor(fileFormat = "") {
     this.resources = [];
     this.formatVersion = "2010-09-09";
@@ -80,3 +82,7 @@ export default class Template {
     }
   }
 }
+
+module.exports = {
+  Template
+};

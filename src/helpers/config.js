@@ -1,4 +1,4 @@
-export default {    
+module.exports = {    
     ec2: {
         Instance: {
             AdditionalInfo: {

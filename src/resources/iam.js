@@ -1,7 +1,9 @@
-import Resource from '../utils/resource.js'
-import config from '../helpers/config.js'
+'use strict';
 
-export class Role extends Resource {
+const { Resource } = require('../utils/resource')
+const config = require('../helpers/config')
+
+class Role extends Resource {
     constructor (name = '') {
         super('AWS::IAM::Role')
         this.name = name
@@ -32,4 +34,8 @@ export class Role extends Resource {
         
         return defintion
     }
+}
+
+module.exports = {
+    Role
 }
