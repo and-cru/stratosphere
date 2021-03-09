@@ -2,7 +2,9 @@ import Instance from './resources/ec2.js'
 import Template  from './template/index.js'
 
 const main = async () => {
-    const T = new Template();
+    const T = new Template('json');
+    T.setFileLocation('/Users/pedreviljoen/Desktop')
+
     T.setDescription('Blah di Dah');
     const map = {
         RegionMap : {
@@ -27,11 +29,9 @@ const main = async () => {
 
     T.addResource(EC2)
     T.addResource(EC3)
-
     // generate
-    const finishedTemplate = await T.generateYAML('/Users/pedreviljoen/Desktop/template.yaml')
+    const finishedTemplate = await T.generateTemplate()
     console.log('Template: ', finishedTemplate)
-
 }
 
 main()
