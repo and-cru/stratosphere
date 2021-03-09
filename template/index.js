@@ -1,4 +1,5 @@
 import fs from 'fs'
+import { generateResources } from '../utils/helper-funcs.js'
 export default class Template {
     constructor() {
         this.resources = []
@@ -42,20 +43,14 @@ export default class Template {
             }
     
             // Map over resources and call createDefinition method
-            const items = this.resources.map(item => {
-                return item.createDefinition()
-            }).reduce((obj, item) => {
-                const key = Object.keys(item)[0]
-                return {...obj, [key]: item[key]}
-            }, {})
+            const resources = generateResources(this.resources)
             
             // Structure template
             newTemplate  = {
                 ...newTemplate,
-                Resources: items
+                Resources: resources
             }
     
-            console.log('New Template', newTemplate)
             // Generate JSON of the template
             const data = JSON.stringify(newTemplate, null, 4)
             

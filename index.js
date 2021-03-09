@@ -29,7 +29,9 @@ const main = async () => {
     T.addResource(EC3)
 
     // generate
-    await T.generateJSON()
+    const finishedTemplate = await T.generateJSON()
+    console.log('Template: ', finishedTemplate)
+
 }
 
 main()
