@@ -1,4 +1,4 @@
-import { ResourceError } from '../utils/error.js'
+import ResourceError from '../utils/error.js'
 import ErrorCodes from '../helpers/error-config.js'
 import _ from 'lodash/array.js'
 

@@ -29,7 +29,7 @@ const main = async () => {
     T.addResource(EC3)
 
     // generate
-    const finishedTemplate = await T.generateJSON()
+    const finishedTemplate = await T.generateYAML('/Users/pedreviljoen/Desktop/template.yaml')
     console.log('Template: ', finishedTemplate)
 
 }
