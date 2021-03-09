@@ -15,3 +15,9 @@ export function validateAndSanitise (props, expectedProps) {
         return valid && type
     })
 }
+
+export function extractRequiredProps (expectedProps) {
+    return Object.keys(expectedProps).filter(prop => {
+        return expectedProps[prop].required
+    })
+}

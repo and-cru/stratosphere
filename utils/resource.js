@@ -1,5 +1,5 @@
 import _ from 'lodash/array.js'
-import { validateAndSanitise } from '../utils/helper-funcs.js'
+import { validateAndSanitise, extractRequiredProps } from '../utils/helper-funcs.js'
 const SANITISED_MESSAGE='Could not validate properties, please check if the provided properties are valid and if a required property is missing'
 export default class Resource {
     constructor (type = '') {
@@ -14,9 +14,7 @@ export default class Resource {
         let newProps = {}
         // Check for type valid and required fields
         const validSanitisedProps = validateAndSanitise(this.properties, expectedProperties)
-        const requiredProps = Object.keys(expectedProperties).filter(prop => {
-            return expectedProperties[prop].required
-        })
+        const requiredProps = extractRequiredProps(expectedProperties)
         const isValidAndSanitsed = (validSanitisedProps.length > 0) &&
             (_.difference(requiredProps, validSanitisedProps).length === 0)
 
