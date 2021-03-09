@@ -9,7 +9,41 @@ const main = async () => {
     T.setDescription('Testing IAM role')
 
     const role = new Role('SampleTest')
-    const properties = {}
+    const properties = {
+        AssumeRolePolicyDocument: {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": [
+                            "ec2.amazonaws.com"
+                        ]
+                    },
+                    "Action": [
+                        "sts:AssumeRole"
+                    ]
+                }
+            ]
+        },
+        Path: "/",
+        Policies: [
+            {
+                "PolicyName": "root",
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": "*",
+                            "Resource": "*"
+                        }
+                    ]
+                }
+            }
+        ],
+        RoleName: 'jdnfowq'
+    }
 
     role.setProperties(properties)
     T.addResource(role)

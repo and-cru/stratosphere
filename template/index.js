@@ -1,6 +1,6 @@
 import fs from "fs";
 import yaml from "js-yaml";
-import { generateResources } from "../utils/helper-funcs.js";
+import { generateResources, generateJSON, generateYAML } from "../utils/helper-funcs.js";
 export default class Template {
   constructor(fileFormat = "") {
     this.resources = [];
@@ -46,109 +46,24 @@ export default class Template {
     try {
       let generatedTemplate = {}
       // Template with file output location
-      if (this.fileLocation) {
-        if (this.fileFormat === "json") {
-          generatedTemplate = await this.generateJSON(`${this.fileLocation}/${this.name}.json`)
-        } else {
-          generatedTemplate = await this.generateYAML(`${this.fileLocation}/${this.name}.yaml`)
-        }
-        return generatedTemplate;
-      }
-
       if (this.fileFormat === "json") {
-        generatedTemplate = await this.generateJSON(`${this.fileLocation}/template.json`)
+        generatedTemplate = await generateJSON(
+          this.formatVersion, 
+          this.resources,
+          this.fileLocation ? `${this.fileLocation}/${this.name}.json` : null,
+          this.description ? this.description : null,
+          this.mappings ? this.mappings : null
+        )
       } else {
-        generatedTemplate = await this.generateYAML(`${this.fileLocation}/template.yaml`)
+        generatedTemplate = await generateYAML(
+          this.formatVersion,
+          this.resources,
+          this.fileLocation ? `${this.fileLocation}/${this.name}.yaml` : null,
+          this.description ? this.description : null,
+          this.mappings ? this.mappings : null
+        )
       }
       return generatedTemplate;
-    } catch (err) {
-      console.error(err);
-    }
-  }
-  //
-  async generateJSON(writeToFile = "") {
-    try {
-      let newTemplate = {
-        AWSTemplateFormatVersion: this.formatVersion,
-      };
-
-      // add conditional elements
-      if (this.description) {
-        newTemplate = {
-          ...newTemplate,
-          Description: this.description,
-        };
-      }
-
-      if (this.mappings) {
-        newTemplate = {
-          ...newTemplate,
-          Mappings: this.mappings,
-        };
-      }
-
-      // Map over resources and call createDefinition method
-      const resources = generateResources(this.resources);
-
-      // Structure template
-      newTemplate = {
-        ...newTemplate,
-        Resources: resources,
-      };
-
-      // Generate JSON of the template
-      const jsonData = JSON.stringify(newTemplate, null, 4);
-
-      if (writeToFile) {
-        await fs.writeFileSync(writeToFile, jsonData);
-      }
-
-      return newTemplate;
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
-  async generateYAML(writeToFile = "") {
-    try {
-      let newTemplate = {
-        AWSTemplateFormatVersion: this.formatVersion,
-      };
-
-      // add conditional elements
-      if (this.description) {
-        newTemplate = {
-          ...newTemplate,
-          Description: this.description,
-        };
-      }
-
-      if (this.mappings) {
-        newTemplate = {
-          ...newTemplate,
-          Mappings: this.mappings,
-        };
-      }
-
-      const resources = generateResources(this.resources);
-
-      // Structure template
-      newTemplate = {
-        ...newTemplate,
-        Resources: resources,
-      };
-
-      // Convert JSON of Template to YAML
-      const yamlDump = yaml.dump(newTemplate, {
-        flowLevel: -1,
-        indent: 2,
-      });
-
-      if (writeToFile) {
-        await fs.writeFileSync(writeToFile, yamlDump);
-      }
-
-      return yamlDump;
     } catch (err) {
       console.error(err);
     }
