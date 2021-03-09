@@ -362,5 +362,63 @@ module.exports = {
                 required: false
             }
         }
+    },
+    ecr:  {
+        PublicRepository: {
+            RepositoryCatalogData: {
+                type: ['object'],
+                required: false
+            },
+            RepositoryName: {
+                type: ['string'],
+                required: false
+            },
+            RepositoryPolicyText: {
+                type: ['object'],
+                required: false
+            },
+            Tags: {
+                type: ['object'],
+                required: false
+            }
+        },
+        RegistryPolicy: {
+            PolicyText: {
+                type: ['object'],
+                required: true
+            }
+        },
+        ReplicationConfiguration: {
+            ReplicationConfiguration: {
+                type: ['object'],
+                required: true
+            }
+        },
+        Repository: {
+            ImageScanningConfiguration: {
+                type: ['object'],
+                required: false
+            },
+            ImageTagMutability: {
+                type: ['object'],
+                required: false
+            },
+            LifecyclePolicy: {
+                type: ['object'],
+                required: false
+            },
+            RepositoryName: {
+                type: ['string'],
+                required: true
+            },
+            RepositoryPolicyText: {
+                type: ['object'],
+                required: false
+            },
+            Tags: {
+                type: ['object'],
+                required: false
+            }
+        }
     }
 }
