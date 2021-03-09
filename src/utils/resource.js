@@ -11,6 +11,11 @@ class Resource {
         this.properties = properties
     }
 
+    // Set Depends On
+    setDepends (resource) {
+        this.dependsOn = resource.name
+    }
+
     validateProps(expectedProperties = {}) {
         let newProps = {}
         // Check for type valid and required fields
@@ -26,6 +31,27 @@ class Resource {
         }
 
         return newProps
+    }
+
+    // Convert to Obj
+    createDefinition () {
+        let defintion = {}
+        const props = this.validateProps(this.expectedConfig)
+
+        if (props !== Error && !this.dependsOn) {
+            defintion[this.name] = {
+                Type: this.type,
+                Properties: this.validateProps(this.expectedConfig)
+            } 
+        } else {
+            defintion[this.name] = {
+                Type: this.type,
+                Properties: this.validateProps(this.expectedConfig),
+                DependsOn: this.dependsOn
+            } 
+        }
+        
+        return defintion
     }
 }
 

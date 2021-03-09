@@ -58,5 +58,29 @@ module.exports = {
                 required: false
             }
         }
+    },
+    s3: {
+        AccessPoint: {
+            Bucket: {
+                type: ['string'],
+                required: true
+            },
+            Name: {
+                type: ['string'],
+                required: false
+            },
+            Policy: {
+                type: ['object'],
+                required: false
+            },
+            PublicAccessBlockConfiguration: {
+                type: ['object'],
+                required: false
+            },
+            VpcConfiguration: {
+                type: ['object'],
+                required: false
+            }
+        }
     }
 }
