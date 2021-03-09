@@ -1,4 +1,5 @@
 import fs from 'fs'
+import yaml from 'js-yaml'
 import { generateResources } from '../utils/helper-funcs.js'
 export default class Template {
     constructor() {
@@ -65,6 +66,6 @@ export default class Template {
     }
 
     generateYAMl() {
-        
+
     }
 }
