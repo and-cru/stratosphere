@@ -1,3 +1,4 @@
+import fs from 'fs'
 export default class Template {
     constructor() {
         this.resources = []
@@ -19,42 +20,53 @@ export default class Template {
     }
 
     // 
-    generateJSON () {
-        let newTemplate = {
-            AWSTemplateFormatVersion: this.formatVersion,
-        }
-
-        // add conditional elements
-        if (this.description) {
-            newTemplate = {
-                ...newTemplate,
-                Description: this.description
+    async generateJSON (writeToFile = '') {
+        try {
+            let newTemplate = {
+                AWSTemplateFormatVersion: this.formatVersion,
             }
-        }
-
-        if (this.mappings) {
-            newTemplate = {
-                ...newTemplate,
-                Mappings: this.mappings
+    
+            // add conditional elements
+            if (this.description) {
+                newTemplate = {
+                    ...newTemplate,
+                    Description: this.description
+                }
             }
-        }
+    
+            if (this.mappings) {
+                newTemplate = {
+                    ...newTemplate,
+                    Mappings: this.mappings
+                }
+            }
+    
+            // Map over resources and call createDefinition method
+            const items = this.resources.map(item => {
+                return item.createDefinition()
+            }).reduce((obj, item) => {
+                const key = Object.keys(item)[0]
+                return {...obj, [key]: item[key]}
+            }, {})
+            
+            // Structure template
+            newTemplate  = {
+                ...newTemplate,
+                Resources: items
+            }
+    
+            console.log('New Template', newTemplate)
+            // Generate JSON of the template
+            const data = JSON.stringify(newTemplate, null, 4)
+            
+            if (writeToFile) {
+                await fs.writeFileSync(writeToFile, data)
+            }
 
-        // Map over resources and call createDefinition method
-        const items = this.resources.map(item => {
-            return item.createDefinition()
-        }).reduce((obj, item) => {
-            const key = Object.keys(item)[0]
-            return {...obj, [key]: item[key]}
-        }, {})
-        
-        // Structure template
-        newTemplate  = {
-            ...newTemplate,
-            Resources: items
+            return newTemplate
+        } catch (err) {
+            console.error(err)
         }
-
-        console.log('New Template', newTemplate)
-        // Generate JSON of the template
     }
 
     generateYAMl() {

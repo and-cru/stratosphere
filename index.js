@@ -1,7 +1,7 @@
 import Instance from './resources/ec2.js'
 import Template  from './template/index.js'
 
-const main = () => {
+const main = async () => {
     const T = new Template();
     T.setDescription('Blah di Dah');
     const map = {
@@ -29,7 +29,7 @@ const main = () => {
     T.addResource(EC3)
 
     // generate
-    T.generateJSON()
+    await T.generateJSON()
 }
 
 main()
