@@ -1,9 +1,9 @@
 import Resource from '../utils/resource.js'
-import config from '../helpers/ec2-config.js'
+import config from '../helpers/iam-config.js'
 
-export default class Instance extends Resource {
+export default class Role extends Resource {
     constructor (name = '') {
-        super('AWS::EC2::Instance')
+        super('AWS::IAM::Role')
         this.name = name
     }
 
@@ -15,17 +15,17 @@ export default class Instance extends Resource {
     // Convert to Obj
     createDefinition () {
         let defintion = {}
-        const props = this.validateProps(config.ec2Instance)
+        const props = this.validateProps(config.iamRole)
 
         if (props !== Error && !this.dependsOn) {
             defintion[this.name] = {
                 Type: this.type,
-                Properties: this.validateProps(config.ec2Instance)
+                Properties: this.validateProps(config.iamRole)
             } 
         } else {
             defintion[this.name] = {
                 Type: this.type,
-                Properties: this.validateProps(config.ec2Instance),
+                Properties: this.validateProps(config.iamRole),
                 DependsOn: this.dependsOn
             } 
         }
