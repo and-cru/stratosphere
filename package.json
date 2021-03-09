@@ -19,5 +19,8 @@
     "url": "https://github.com/and-cru/stratosphere/issues"
   },
   "homepage": "https://github.com/and-cru/stratosphere#readme",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }

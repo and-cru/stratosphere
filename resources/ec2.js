@@ -7,15 +7,26 @@ export default class Instance extends Resource {
         this.name = name
     }
 
+    // Set Depends On
+    setDepends (resource) {
+        this.dependsOn = resource.name
+    }
+
     // Convert to Obj
     createDefinition () {
         let defintion = {}
-        const props = this.sanitiseProperties(config.ec2Instance)
+        const props = this.validateProps(config.ec2Instance)
 
-        if (props !== Error) {
+        if (props !== Error && !this.dependsOn) {
             defintion[this.name] = {
                 Type: this.type,
-                Properties: this.sanitiseProperties(config.ec2Instance)
+                Properties: this.validateProps(config.ec2Instance)
+            } 
+        } else {
+            defintion[this.name] = {
+                Type: this.type,
+                Properties: this.validateProps(config.ec2Instance),
+                DependsOn: this.dependsOn
             } 
         }
         

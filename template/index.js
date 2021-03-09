@@ -7,12 +7,11 @@ export default class Template {
     // Method to add a resource to the template
     addResource (resource) {
         this.resources.push(resource)
-        console.log('Resources:', this.resources)
     }
 
     // set some common variables - for now Description and Mappings
     setDescription (description = '') {
-        this.description = '';
+        this.description = description;
     }
 
     setMappings (mappings = {}) {
@@ -45,7 +44,6 @@ export default class Template {
             return item.createDefinition()
         }).reduce((obj, item) => {
             const key = Object.keys(item)[0]
-            
             return {...obj, [key]: item[key]}
         }, {})
         

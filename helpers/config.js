@@ -1,19 +1,19 @@
 export default {    
     ec2Instance: {
         AdditionalInfo: {
-            type: 'String',
+            type: 'string',
             required: false
         },
         Affinity: {
-            type: 'String',
+            type: 'string',
             required: false
         },
         AvailabilityZone: {
-            type: 'String',
+            type: 'string',
             required: false
         },
         ImageId: {
-            type: 'String',
+            type: 'object',
             required: true
         }
     }
