@@ -173,6 +173,16 @@ module.exports = {
                 type: ['object'],
                 required: true
             }
+        },
+        StorageLens: {
+            StorageLensConfiguration: {
+                type: ['object'],
+                required: true
+            },
+            Tags: {
+                type: ['object'],
+                required: false
+            }
         }
     }
 }
