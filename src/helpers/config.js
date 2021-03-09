@@ -163,6 +163,16 @@ module.exports = {
                 type: ['object'],
                 required: false
             }
+        },
+        BucketPolicy: {
+            Bucket: {
+                type: ['string'],
+                required: true
+            },
+            PolicyDocument: {
+                type: ['object'],
+                required: true
+            }
         }
     }
 }
