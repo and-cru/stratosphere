@@ -57,6 +57,20 @@ module.exports = {
                 type: ['object'],
                 required: false
             }
+        },
+        AccessKey: {
+            Serial: {
+                type: ['number'],
+                required: false
+            },
+            Status: {
+                type: ['string'],
+                required: false
+            },
+            UserName: {
+                type: ['string'],
+                required: true
+            }
         }
     },
     s3: {
