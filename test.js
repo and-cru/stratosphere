@@ -1,5 +1,5 @@
-import Instance from './resources/ec2.js'
-import Role from './resources/iam.js'
+import { Instance } from './resources/ec2.js'
+import { Role } from './resources/iam.js'
 import Template  from './template/index.js'
 
 const main = async () => {

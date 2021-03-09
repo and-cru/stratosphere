@@ -1,7 +1,7 @@
 import Resource from '../utils/resource.js'
 import config from '../helpers/ec2-config.js'
 
-export default class Instance extends Resource {
+export class Instance extends Resource {
     constructor (name = '') {
         super('AWS::EC2::Instance')
         this.name = name

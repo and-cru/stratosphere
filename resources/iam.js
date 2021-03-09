@@ -1,7 +1,7 @@
 import Resource from '../utils/resource.js'
 import config from '../helpers/iam-config.js'
 
-export default class Role extends Resource {
+export class Role extends Resource {
     constructor (name = '') {
         super('AWS::IAM::Role')
         this.name = name
