@@ -1,5 +1,5 @@
 import Resource from '../utils/resource.js'
-import config from '../helpers/iam-config.js'
+import config from '../helpers/config.js'
 
 export class Role extends Resource {
     constructor (name = '') {
@@ -15,17 +15,17 @@ export class Role extends Resource {
     // Convert to Obj
     createDefinition () {
         let defintion = {}
-        const props = this.validateProps(config.iamRole)
+        const props = this.validateProps(config.iam.Role)
 
         if (props !== Error && !this.dependsOn) {
             defintion[this.name] = {
                 Type: this.type,
-                Properties: this.validateProps(config.iamRole)
+                Properties: this.validateProps(config.iam.Role)
             } 
         } else {
             defintion[this.name] = {
                 Type: this.type,
-                Properties: this.validateProps(config.iamRole),
+                Properties: this.validateProps(config.iam.Role),
                 DependsOn: this.dependsOn
             } 
         }

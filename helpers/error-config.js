@@ -7,6 +7,7 @@ export  default {
   TemplateErrorCode: {
     EXCEEDS_TEMPLATE_LIMIT: 2,
     INCORRECT_FORMAT_PROVIDED: 3,
-    NO_RESOURCES_PROVIDED: 4
+    NO_RESOURCES_PROVIDED: 4,
+    RESOURCE_LIMIT_ERROR: 5
   }
 }

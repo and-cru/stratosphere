@@ -1,4 +1,4 @@
-import { ResourceError } from "../utils/error.js";
+import { ResourceError, TemplateError } from "../utils/error.js";
 import ErrorCodes from "../helpers/error-config.js";
 
 import fs from "fs";
@@ -69,6 +69,15 @@ export async function generateJSON(
   mappings = {}
 ) {
   try {
+    // check for any limitations and throw error
+    if (resources.length >= 500) {
+      throw new TemplateError(
+        "Max limit of resources in a template is 500",
+        ErrorCodes.TemplateErrorCode.RESOURCE_LIMIT_ERROR,
+        "Too many resources in this template, try and use nested stacks"
+      )
+    }
+
     let newTemplate = {
       AWSTemplateFormatVersion: formatVersion,
     };

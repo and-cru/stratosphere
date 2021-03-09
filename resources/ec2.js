@@ -1,5 +1,5 @@
 import Resource from '../utils/resource.js'
-import config from '../helpers/ec2-config.js'
+import config from '../helpers/config.js'
 
 export class Instance extends Resource {
     constructor (name = '') {
@@ -15,17 +15,17 @@ export class Instance extends Resource {
     // Convert to Obj
     createDefinition () {
         let defintion = {}
-        const props = this.validateProps(config.ec2Instance)
+        const props = this.validateProps(config.ec2.Instance)
 
         if (props !== Error && !this.dependsOn) {
             defintion[this.name] = {
                 Type: this.type,
-                Properties: this.validateProps(config.ec2Instance)
+                Properties: this.validateProps(config.ec2.Instance)
             } 
         } else {
             defintion[this.name] = {
                 Type: this.type,
-                Properties: this.validateProps(config.ec2Instance),
+                Properties: this.validateProps(config.ec2.Instance),
                 DependsOn: this.dependsOn
             } 
         }
