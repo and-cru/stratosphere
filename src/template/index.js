@@ -83,6 +83,4 @@ class Template {
   }
 }
 
-module.exports = {
-  Template
-};
+module.exports.Template = Template

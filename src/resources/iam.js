@@ -36,6 +36,4 @@ class Role extends Resource {
     }
 }
 
-module.exports = {
-    Role
-}
+module.exports.Role = Role

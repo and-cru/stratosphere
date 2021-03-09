@@ -1,7 +1,7 @@
 'use strict'
 
-const Resource = require('../utils/resource.js' );
-const config = require('../helpers/config.js'); 
+const { Resource } = require('../utils/resource' );
+const config = require('../helpers/config'); 
 
 class Instance extends Resource {
     constructor (name = '') {
@@ -36,6 +36,4 @@ class Instance extends Resource {
     }
 }
 
-module.exports = {
-    Instance
-}
+module.exports.Instance = Instance

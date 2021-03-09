@@ -1,7 +1,6 @@
 'use strict'
 
-const { Template } = require('./src/template/index');
-const { Role } = require('./src/resources/iam');
+const { Template, iam } = require('./index')
 
 const main = async () => {
     const T = new Template('json');
@@ -9,7 +8,7 @@ const main = async () => {
     T.setName('blah')
     T.setDescription('Testing IAM role')
 
-    const role = new Role('SampleTest')
+    const role = new iam.Role('SampleTest')
     const properties = {
         AssumeRolePolicyDocument: {
             "Version": "2012-10-17",
