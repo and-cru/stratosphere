@@ -1,6 +1,6 @@
-import { Instance } from './resources/ec2.js'
-import { Role } from './resources/iam.js'
-import Template  from './template/index.js'
+import { Instance } from './src/resources/ec2.js'
+import { Role } from './src/resources/iam.js'
+import Template  from './src/template/index.js'
 
 const main = async () => {
     const T = new Template('json');
