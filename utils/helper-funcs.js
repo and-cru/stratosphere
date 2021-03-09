@@ -1,11 +1,11 @@
-import ResourceError from "../utils/error.js";
+import { ResourceError } from "../utils/error.js";
 import ErrorCodes from "../helpers/error-config.js";
 
 import fs from "fs";
 import _ from "lodash/array.js";
 import yaml from "js-yaml";
 
-export function generateResources(resourceList = []) {
+function generateResources(resourceList = []) {
   return resourceList
     .map((item) => {
       return item.createDefinition();
@@ -21,14 +21,16 @@ export function validateAndSanitise(props, expectedProps) {
     if (!Object.keys(expectedProps).includes(prop)) {
       throw new ResourceError(
         "Invalid property supplied",
-        ErrorCodes.ResourceErrorCode.INVALID_PROPS
+        ErrorCodes.ResourceErrorCode.INVALID_PROPS,
+        "Check if the props provided much the expected props"
       );
     }
 
     if (!expectedProps[prop].type.includes(typeof props[prop])) {
       throw new ResourceError(
         "Property type mismatch",
-        ErrorCodes.ResourceErrorCode.PROP_TYPE_MISMATCH
+        ErrorCodes.ResourceErrorCode.PROP_TYPE_MISMATCH,
+        "Check if the data type for the props of the resource match the expected type"
       );
     }
 
@@ -48,7 +50,8 @@ export function checkForRequiredProps(validAndSanitised, requiredProperties) {
   if (_.difference(requiredProperties, validAndSanitised).length > 0) {
     throw new ResourceError(
       "Missing required property",
-      ErrorCodes.ResourceErrorCode.MISSING_REQUIRED_PROPS
+      ErrorCodes.ResourceErrorCode.MISSING_REQUIRED_PROPS,
+      "Check if the props for the resource is missing a required prop"
     );
   }
 

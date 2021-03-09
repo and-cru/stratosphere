@@ -1,11 +1,23 @@
-import fs from "fs";
-import yaml from "js-yaml";
-import { generateResources, generateJSON, generateYAML } from "../utils/helper-funcs.js";
+import { generateJSON, generateYAML } from "../utils/helper-funcs.js";
+import { TemplateError } from "../utils/error.js"
+import ErrorCodes from "../helpers/error-config.js";
+
 export default class Template {
   constructor(fileFormat = "") {
     this.resources = [];
     this.formatVersion = "2010-09-09";
-    this.fileFormat = fileFormat.toLowerCase();
+
+    if (fileFormat.toLowerCase() === "json" ||
+      fileFormat.toLowerCase() === "yaml") {
+      this.fileFormat = fileFormat.toLowerCase();
+    } else {
+      throw new TemplateError(
+        "Invalid file format provided",
+        ErrorCodes.TemplateErrorCoode.NO_FORMAT_PROVIDED,
+        "Please specify either JSON or YAML file formats"
+      )
+    }
+    
   }
 
   // Method to add a resource to the template
@@ -37,7 +49,11 @@ export default class Template {
     ) {
       this.fileFormat = fileFormat.toLowerCase();
     } else {
-      // throw an error of invalid  file format
+      throw new TemplateError(
+        "Invalid file format provided",
+        ErrorCodes.TemplateErrorCoode.NO_FORMAT_PROVIDED,
+        "Please specify either JSON or YAML file formats"
+      )
     }
   }
 
