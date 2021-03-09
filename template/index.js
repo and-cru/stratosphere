@@ -6,18 +6,7 @@ export default class Template {
   constructor(fileFormat = "") {
     this.resources = [];
     this.formatVersion = "2010-09-09";
-
-    if (fileFormat.toLowerCase() === "json" ||
-      fileFormat.toLowerCase() === "yaml") {
-      this.fileFormat = fileFormat.toLowerCase();
-    } else {
-      throw new TemplateError(
-        "Invalid file format provided",
-        ErrorCodes.TemplateErrorCoode.NO_FORMAT_PROVIDED,
-        "Please specify either JSON or YAML file formats"
-      )
-    }
-    
+    this.fileFormat = fileFormat.toLowerCase().trim();
   }
 
   // Method to add a resource to the template
@@ -43,24 +32,30 @@ export default class Template {
   }
 
   setFileFormat(fileFormat = "") {
-    if (
-      fileFormat.toLowerCase() === "json" ||
-      fileFormat.toLowerCase() === "yaml"
-    ) {
-      this.fileFormat = fileFormat.toLowerCase();
-    } else {
-      throw new TemplateError(
-        "Invalid file format provided",
-        ErrorCodes.TemplateErrorCoode.NO_FORMAT_PROVIDED,
-        "Please specify either JSON or YAML file formats"
-      )
-    }
+    this.fileFormat = fileFormat.toLowerCase().trim();
   }
 
   //
   async generateTemplate() {
     try {
       let generatedTemplate = {}
+      // check if resources provided
+      if (this.resources.length === 0) {
+        throw new TemplateError(
+          "No resources specified",
+          ErrorCodes.TemplateErrorCode.NO_RESOURCES_PROVIDED,
+          "Please add some resources to the template"
+        )
+      }
+
+      if (!(this.fileFormat === 'json' || this.fileFormat === 'yaml')) {
+        throw new TemplateError(
+          "File format either not specified or incorrect",
+          ErrorCodes.TemplateErrorCode.INCORRECT_FORMAT_PROVIDED,
+          "Please ensure file format is either JSON or YAML"
+        )
+      }
+
       // Template with file output location
       if (this.fileFormat === "json") {
         generatedTemplate = await generateJSON(

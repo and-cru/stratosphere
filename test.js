@@ -3,7 +3,7 @@ import { Role } from './resources/iam.js'
 import Template  from './template/index.js'
 
 const main = async () => {
-    const T = new Template('yaml');
+    const T = new Template('json');
     T.setFileLocation('/Users/pedreviljoen/Desktop')
     T.setName('blah')
     T.setDescription('Testing IAM role')

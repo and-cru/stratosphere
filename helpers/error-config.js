@@ -4,8 +4,9 @@ export  default {
     MISSING_REQUIRED_PROPS: 3,
     PROP_TYPE_MISMATCH: 4,
   },
-  TemplateErrorCoode: {
+  TemplateErrorCode: {
     EXCEEDS_TEMPLATE_LIMIT: 2,
     INCORRECT_FORMAT_PROVIDED: 3,
+    NO_RESOURCES_PROVIDED: 4
   }
 }
