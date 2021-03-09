@@ -14,7 +14,7 @@ export default class Resource {
         // Check for type valid and required fields
         const validSanitisedProps = Object.keys(this.properties).filter(prop => {
             const valid = (Object.keys(expectedProperties).includes(prop)) 
-            const type = (typeof this.properties[prop] === expectedProperties[prop].type)
+            const type = (expectedProperties[prop].type.includes(typeof this.properties[prop]))
             
             return valid && type
         })

@@ -19,7 +19,7 @@ const main = async () => {
     const properties = {
         AdditionalInfo: 'Some',
         Affinity: 'Blah',
-        ImageId: { "Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "HVM64"]}
+        ImageId: "i-jndiasd"
     }
     EC2.setProperties(properties)
     EC3.setProperties(properties)
