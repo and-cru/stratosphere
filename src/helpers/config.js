@@ -71,6 +71,170 @@ module.exports = {
                 type: ['string'],
                 required: true
             }
+        },
+        Group: {
+            GroupName: {
+                type: ['string'],
+                required: true
+            },
+            ManagedPolicyArns: {
+                type: ['object'],
+                required: false
+            },
+            Path: {
+                type: ['string'],
+                required: false
+            },
+            Policies: {
+                type: ['object'],
+                required: false
+            }
+        },
+        InstanceProfile: {
+            InstanceProfileName: {
+                type: ['string'],
+                required: false
+            },
+            Path: {
+                type: ['string'],
+                required: false
+            },
+            Roles: {
+                type: ['object'],
+                required: true
+            }
+        },
+        ManagedPolicy: {
+            Description: {
+                type: ['string'],
+                required: false
+            },
+            Groups: {
+                type: ['object'],
+                required: false
+            },
+            ManagedPolicyName: {
+                type: ['string'],
+                required: false
+            },
+            Path: {
+                type: ['string'],
+                required: false
+            },
+            PolicyDocument: {
+                type: ['object'],
+                required: true
+            },
+            Roles: {
+                type: ['object'],
+                required: false
+            },
+            Users: {
+                type: ['object'],
+                required: false
+            }
+        },
+        OIDCProvider: {
+            ClientIdList: {
+                type: ['object'],
+                required: false
+            },
+            Tags: {
+                type: ['object'],
+                required: false
+            },
+            ThumbprintList: {
+                type: ['object'],
+                required: true
+            },
+            Url: {
+                type: ['string'],
+                required: false
+            }
+        },
+        Policy: {
+            Groups: {
+                type: ['object'],
+                required: false
+            },
+            PolicyDocument: {
+                type: ['object'],
+                required: true
+            },
+            PolicyName: {
+                type: ['string'],
+                required: true
+            },
+            Roles: {
+                type: ['object'],
+                required: false
+            },
+            Users: {
+                type: ['object'],
+                required: true
+            }
+        },
+        User: {
+            Groups: {
+                type: ['object'],
+                required: false
+            },
+            LoginProfile: {
+                type: ['object'],
+                required: false
+            },
+            ManagedPolicyArns: {
+                type: ['object'],
+                required: false
+            },
+            Path: {
+                type: ['string'],
+                required: false
+            },
+            PermissionsBoundary: {
+                type: ['string'],
+                required: false
+            },
+            Policies: {
+                type: ['object'],
+                required: false
+            },
+            Tags: {
+                type: ['object'],
+                required: false
+            },
+            UserName: {
+                type: ['string'],
+                required: false
+            }
+        },
+        UserToGroupAddition: {
+            GroupName: {
+                type: ['string'],
+                required: true
+            },
+            Users: {
+                type: ['object'],
+                required: true
+            }
+        },
+        VirtualMFADevice: {
+            Path: {
+                type: ['string'],
+                required: false
+            },
+            Tags: {
+                type: ['object'],
+                required: false
+            },
+            Users: {
+                type: ['object'],
+                required: true
+            },
+            VirtualMfaDeviceName: {
+                type: ['string'],
+                required: false
+            }
         }
     },
     s3: {
