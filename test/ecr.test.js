@@ -35,4 +35,4 @@ test('Create Repository', () => {
     expect(item.type).toBe('AWS::ECR::Repository')
 })
 
-// ECR Testing - Properties - Sad Path
+// ECR testing - Error handling
