@@ -11,7 +11,7 @@ class AccessPoint extends Resource {
     }
 }
 
-class Bucket extends Resoource {
+class Bucket extends Resource {
     constructor (name = '') {
         super('AWS::S3::Bucket')
         this.name = name
