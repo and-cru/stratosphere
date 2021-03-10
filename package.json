@@ -1,5 +1,5 @@
 {
-  "name": "stratosphere",
+  "name": "@stratosphere/cloudformer",
   "version": "1.0.0",
   "description": "A simple NodeJS library to generate CFN templates",
   "main": "index.js",

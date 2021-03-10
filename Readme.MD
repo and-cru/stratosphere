@@ -16,8 +16,16 @@ Stratosphere is a simple package which allows you to generate [CloudFormation](h
 
 #### Install
 
+With NPM
+
 ```bash
-npm install stratosphere
+npm install @stratosphere/cloudformer
+```
+
+Or Yarn
+
+```
+yarn add @stratosphere/cloudformer
 ```
 
 #### Example
