@@ -4,7 +4,7 @@ const { Template, iam } = require('./index')
 
 const main = async () => {
     const T = new Template('json');
-    T.setFileLocation('/Users/pedreviljoen/Desktop')
+    T.setFileLocation('')
     T.setName('blah')
     T.setDescription('Testing IAM role')
 
