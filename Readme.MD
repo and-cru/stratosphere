@@ -8,7 +8,7 @@
 
 ## Why Stratosphere
 
-The stratosphere is a region of the Earth's atmosphere, from 20km to 50km from the Earth, and contains the important Ozone layer which provides important protection from UV. Stratosphere aims to provide similar protection with creating Infrastructure as Code, by abstracting complexity incorporating validation.
+The stratosphere is a region of the Earth's atmosphere, from 20km to 50km from the Earth, and contains the important Ozone layer which provides important protection from UV. Stratosphere aims to provide similar protection with creating Infrastructure as Code, by abstracting complexity & incorporating validation.
 
 Stratosphere is a simple package which allows you to generate [CloudFormation](https://aws.amazon.com/cloudformation/) templates, no frills just simple. Create and construct templates with the same `NodeJS` object feel.
 
