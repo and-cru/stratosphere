@@ -5,7 +5,7 @@ test('Jest mock', () => {
     expect(x).toBe(2)
 })
 
-// S3 testing
+// S3 testing -  Creation
 
 test('Create AccessPoint', () => {
     const item = new s3.AccessPoint('Test')
