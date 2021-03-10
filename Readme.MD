@@ -144,6 +144,8 @@ From the [CloudFormation resource reference](https://docs.aws.amazon.com/AWSClou
 - [IAM](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IAM.html)
 - [S3](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_S3.html)
 - [ECR](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ECR.html)
+- [Beanstalk](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ElasticBeanstalk.html)
+- [RDS](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_RDS.html)
 
 For a summarised view of what is planned and currently in progress, head over to our [Roadmap](https://github.com/and-cru/stratosphere/projects/1)
 
