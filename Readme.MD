@@ -28,30 +28,60 @@ Or Yarn
 yarn add @stratosphere/cloudformer
 ```
 
-#### Example
+#### Reference guide for Template and Resources
+
+> Template
 
 ```javascript
-const { Template, iam } = require('stratosphere')
+const { Template, iam } = require('@stratosphere/cloudformer')
 
-const main = async () => {
-    const T = new Template('json');
-    T.setFileLocation('/Users/local/Desktop')
-    T.setName('template')
-    T.setDescription('Testing IAM role')
+// Initialize a new Template with JSON file format. Valid file format values are JSON and YAML
+const T = new Template('json')
 
-    const role = new iam.Role('SampleRole')
-    const properties = {
+// Set optional output file location
+T.setFileLocation('/Users/local/Desktop')
+
+// Set the name of the template file at the output file location
+T.setName('myTemplate')
+
+// Set optional description for template - expected type is String
+T.setDescription('Example template')
+
+// Add Mappings to template - expected type is Object
+const mappingsObj = {}
+T.setMappings(mappingsObj)
+
+
+// Add a resource to the Template - Expected type is Resource
+const newRole = iam.Role('myRole')
+T.addResouce(newRole)
+
+// Generate template. If file location specified this will write the generate template output to the file location
+const completedTemplate = await T.generateTemplate()
+```
+
+> Resource
+
+```javascript
+const { iam } = require('@stratosphere/cloudformer')
+
+// Initialize a new IAM role with a resource name - Expected type for name is String
+const newRole = new iam.Role('myRole')
+
+// Create the properties object for the IAM role - Expected type here is an Object of properties
+// Underneath the supplied properties are validated according to specification for expected properties, property type and required properties
+const properties = {
         AssumeRolePolicyDocument: {
-            "Version": "2012-10-17",
-            "Statement": [
+            Version: "2012-10-17",
+            Statement: [
                 {
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": [
+                    Effect: "Allow",
+                    Principal: {
+                        Service: [
                             "ec2.amazonaws.com"
                         ]
                     },
-                    "Action": [
+                    Action: [
                         "sts:AssumeRole"
                     ]
                 }
@@ -60,10 +90,10 @@ const main = async () => {
         Path: "/",
         Policies: [
             {
-                "PolicyName": "root",
-                "PolicyDocument": {
-                    "Version": "2012-10-17",
-                    "Statement": [
+                PolicyName: "root",
+                PolicyDocument: {
+                    Version: "2012-10-17",
+                    Statement: [
                         {
                             "Effect": "Allow",
                             "Action": "*",
@@ -73,17 +103,39 @@ const main = async () => {
                 }
             }
         ],
-        RoleName: 'myRole'
+        RoleName: "my-example-role"
     }
 
-    role.setProperties(properties)
-    T.addResource(role)
+// Set properties of the IAM role resource
+newRole.setProperties(properties)
+```
+
+#### Example
+
+> An example to Create a S3 bucket
+
+```javascript
+const { Template, s3 } = require('@stratosphere/cloudformer')
+
+const main = async () => {
+    const T = new Template('yaml');
+    T.setFileLocation('/Users/local/Desktop')
+    T.setName('myBucketTemplate')
+
+    const myBucket = new s3.Bucket('MyBucket')
+    const properties = {
+        VersioningConfiguration: {
+            Status: "Enabled"
+        },
+        BucketName: "my-sample-test-bucket"
+    }
+
+    myBucket.setProperties(properties)
+    T.addResource(myBucket)
     // generate - this will return the template in the specified format
     const finishedTemplate = await T.generateTemplate()
 }
 ```
-
-#### API reference for Template and Resources
 
 ### Resources supported
 
