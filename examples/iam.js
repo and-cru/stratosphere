@@ -1,6 +1,6 @@
 'use strict'
 
-const { Template, iam } = require('./index')
+const { Template, iam } = require('../index')
 
 const main = async () => {
     const T = new Template('json');
