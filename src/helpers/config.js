@@ -616,5 +616,137 @@ module.exports = {
                 required: false
             }
         }
+    },
+    rds: {
+        DBCluster: {
+            AssociatedRoles: {
+                type: ['object'],
+                required: false
+            },
+            AvailabilityZones: {
+                type: ['object'],
+                required: false
+            },
+            BacktrackWindow: {
+                type: ['number'],
+                required: false
+            },
+            BackupRetentionPeriod: {
+                type: ['object', 'number'],
+                required: false
+            },
+            DatabaseName: {
+                type: ['object', 'string'],
+                required: true
+            },
+            DBClusterIdentifier: {
+                type: ['object', 'string'],
+                required: false
+            },
+            DBClusterParameterGroupName: {
+                type: ['object', 'string'],
+                required: false
+            },
+            DBSubnetGroupName: {
+                type: ['object', 'string'],
+                required: false
+            },
+            DeletionProtection: {
+                type: ['boolean'],
+                required: false
+            },
+            EnableCloudwatchLogsExports: {
+                type: ['object'],
+                required: false
+            },
+            EnableHttpEndpoint: {
+                type: ['boolean'],
+                required: false
+            },
+            EnableIAMDatabaseAuthentication: {
+                type: ['boolean'],
+                required: false
+            },
+            Engine: {
+                type: ['object', 'string'],
+                required: true
+            },
+            EngineMode: {
+                type: ['object', 'string'],
+                required: false
+            },
+            EngineVersion: {
+                type: ['string', 'object'],
+                required: false
+            },
+            GlobalClusterIdentifier: {
+                type: ['object', 'string'],
+                required: false
+            },
+            KmsKeyId: {
+                type: ['string'],
+                required: false
+            },
+            MasterUsername: {
+                type: ['object', 'string'],
+                required: false
+            },
+            MasterUserPassword: {
+                type: ['object', 'string'],
+                required: false
+            },
+            Port: {
+                type: ['number'],
+                required: false
+            },
+            PreferredBackupWindow: {
+                type: ['string'],
+                required: false
+            },
+            PreferredMaintenanceWindow: {
+                type: ['string'],
+                required: false
+            },
+            ReplicationSourceIdentifier: {
+                type: ['string'],
+                required: false
+            },
+            RestoreType: {
+                type: ['string'],
+                required: false
+            },
+            ScalingConfiguration: {
+                type: ['object'],
+                required: false
+            },
+            SnapshotIdentifier: {
+                type: ['string', 'object'],
+                required: false
+            },
+            SourceDBClusterIdentifier: {
+                type: ['string'],
+                required: false
+            },
+            SourceRegion: {
+                type: ['string', 'object'],
+                required: false
+            },
+            StorageEncrypted: {
+                type: ['boolean'],
+                required: false
+            },
+            Tags: {
+                type: ['object'],
+                required: false
+            },
+            UseLatestRestorableTime: {
+                type: ['boolean'],
+                required: false
+            },
+            VpcSecurityGroupIds: {
+                type: ['object'],
+                required: false
+            }
+        }
     }
 }
