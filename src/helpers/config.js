@@ -6,16 +6,152 @@ module.exports = {
                 required: false
             },
             Affinity: {
-                type: ['string'],
+                type: ['object', 'string'],
                 required: false
             },
             AvailabilityZone: {
-                type: ['string'],
+                type: ['object', 'string'],
+                required: false
+            },
+            BlockDeviceMappings: {
+                type: ['object'],
+                required: false
+            },
+            CpuOptions: {
+                type: ['object'],
+                required: false
+            },
+            CreditSpecification: {
+                type: ['object'],
+                required: false
+            },
+            DisableApiTermination: {
+                type: ['object', 'boolean'],
+                required: false
+            },
+            EbsOptimized: {
+                type: ['object', 'boolean'],
+                required: false
+            },
+            ElasticGpuSpecifications: {
+                type: ['object'],
+                required: false
+            },
+            ElasticInferenceAccelerators: {
+                type: ['object'],
+                required: false
+            },
+            EnclaveOptions: {
+                type: ['object'],
+                required: false
+            },
+            HibernationOptions: {
+                type: ['object'],
+                required: false
+            },
+            HostId: {
+                type: ['object', 'string'],
+                required: false
+            },
+            HostResourceGroupArn: {
+                type: ['object', 'string'],
+                required: false
+            },
+            IamInstanceProfile: {
+                type: ['object', 'string'],
                 required: false
             },
             ImageId: {
                 type: ['object', 'string'],
                 required: true
+            },
+            InstanceInitiatedShutdownBehavior: {
+                type: ['object', 'string'],
+                required: false
+            },
+            InstanceType: {
+                type: ['object', 'string'],
+                required: false
+            },
+            Ipv6AddressCount: {
+                type: ['object', 'number'],
+                required: false
+            },
+            Ipv6Addresses: {
+                type: ['object'],
+                required: false
+            },
+            KernelId: {
+                type: ['object', 'string'],
+                required: false
+            },
+            KeyName: {
+                type: ['object', 'string'],
+                required: false
+            },
+            LaunchTemplate: {
+                type: ['object'],
+                required: false
+            },
+            LicenseSpecifications: {
+                type: ['object'],
+                required: false
+            },
+            Monitoring: {
+                type: ['object', 'boolean'],
+                required: false
+            },
+            NetworkInterfaces: {
+                type: ['object'],
+                required: false
+            },
+            PlacementGroupName: {
+                type: ['object', 'string'],
+                required: false
+            },
+            PrivateIpAddress: {
+                type: ['object', 'string'],
+                required: false
+            },
+            RamdiskId: {
+                type: ['object', 'string'],
+                required: false
+            },
+            SecurityGroupIds: {
+                type: ['object'],
+                required: false
+            },
+            SecurityGroups: {
+                type: ['object'],
+                required: false
+            },
+            SourceDestCheck: {
+                type: ['object', 'boolean'],
+                required: false
+            },
+            SsmAssociations: {
+                type: ['object'],
+                required: false
+            },
+            SubnetId: {
+                type: ['object', 'string'],
+                required: false
+            },
+            Tags: {
+                type: ['object'],
+                required: false
+            },
+            Tenancy: {
+                type: ['object', 'string'],
+                required: false
+            },
+            UserData: {
+                type: ['object', 'string'],
+                required: false
+            },
+            Volumes: {
+                type: ['object'],
+                required: false
             }
         }
     },
