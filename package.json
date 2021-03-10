@@ -11,7 +11,9 @@
     "url": "git+ssh://git@github.com/and-cru/stratosphere.git"
   },
   "keywords": [
-    "CloudFormation"
+    "CloudFormation",
+    "Stratosphere",
+    "Cloudformer"
   ],
   "author": "Pedre Viljoen",
   "license": "GPL",
