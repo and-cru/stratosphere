@@ -47,7 +47,7 @@ T.setName('myTemplate')
 // Set optional description for template - expected type is String
 T.setDescription('Example template')
 
-// Add Mappings to template - expected type is Object
+// Set optional mappings of template - expected type is Object
 const mappingsObj = {}
 T.setMappings(mappingsObj)
 
