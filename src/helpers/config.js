@@ -556,5 +556,65 @@ module.exports = {
                 required: false
             }
         }
+    },
+    beanstalk: {
+        Application: {
+            ApplicationName: {
+                type: ['string', 'object'],
+                required: false
+            },
+            Description: {
+                type: ['string', 'object'],
+                required: false
+            },
+            ResourceLifecycleConfig: {
+                type: ['object'],
+                required: false
+            }
+        },
+        ApplicationVersion: {
+            ApplicationName: {
+                type: ['string', 'object'],
+                required: true
+            },
+            Description: {
+                type: ['string', 'object'],
+                required: false
+            },
+            SourceBundle: {
+                type: ['object'],
+                required: true
+            }
+        },
+        ConfigurationTemplate: {
+            ApplicationName: {
+                type: ['string', 'object'],
+                required: true
+            },
+            Description: {
+                type: ['string', 'object'],
+                required: false
+            },
+            EnvironmentId: {
+                type: ['object', 'string'],
+                required: true
+            },
+            OptionSettings: {
+                type: ['object'],
+                required: false
+            },
+            PlatformArn: {
+                type: ['object', 'string'],
+                required: false
+            },
+            SolutionStackName: {
+                type: ['object', 'string'],
+                required: false
+            },
+            SourceConfiguration: {
+                type: ['object'],
+                required: false
+            }
+        }
     }
 }

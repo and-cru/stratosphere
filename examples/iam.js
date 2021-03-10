@@ -1,5 +1,4 @@
 'use strict'
-
 const { Template, iam } = require('../index')
 
 const main = async () => {
