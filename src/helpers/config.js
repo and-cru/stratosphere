@@ -1163,6 +1163,28 @@ module.exports = {
                 type: ['boolean'],
                 required: false
             }
+        },
+        OptionGroup: {
+            EngineName: {
+                type: ['string'],
+                required: true
+            },
+            MajorEngineVersion: {
+                type: ['string'],
+                required: true
+            },
+            OptionConfigurations: {
+                type: ['object'],
+                required: true
+            },
+            OptionGroupDescription: {
+                type: ['string'],
+                required: true
+            },
+            Tags: {
+                type: ['object'],
+                required: false
+            }
         }
     }
 }
