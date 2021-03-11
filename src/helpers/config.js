@@ -1035,6 +1035,28 @@ module.exports = {
                 type:  ['string', 'object'],
                 required: false
             }
+        },
+        DBProxyTargetGroup: {
+            ConnectionPoolConfigurationInfo: {
+                type: ['object'],
+                required: false
+            },
+            DBClusterIdentifiers: {
+                type: ['object'],
+                required: false
+            },
+            DBInstanceIdentifiers: {
+                type: ['object'],
+                required: false
+            },
+            DBProxyName: {
+                type: ['string'],
+                required: true
+            },
+            TargetGroupName: {
+                type: ['string'],
+                required: true
+            }
         }
     }
 }
