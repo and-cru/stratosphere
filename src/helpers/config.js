@@ -957,6 +957,24 @@ module.exports = {
                 type: ['object'],
                 required: false
             }
+        },
+        DBClusterParameterGroup: {
+            Description: {
+                type:  ['string'],
+                required: true
+            },
+            Family: {
+                type:  ['string'],
+                required: true
+            },
+            Parameters: {
+                type:  ['object'],
+                required: true
+            },
+            Tags: {
+                type:  ['object'],
+                required: false
+            }
         }
     }
 }
