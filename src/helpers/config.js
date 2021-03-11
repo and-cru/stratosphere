@@ -747,6 +747,216 @@ module.exports = {
                 type: ['object'],
                 required: false
             }
+        },
+        DBInstance: {
+            AllocatedStorage: {
+                type: ['string', 'object'],
+                required: false
+            },
+            AllowMajorVersionUpgrade: {
+                type: ['boolean'],
+                required: false
+            },
+            AssociatedRoles: {
+                type: ['object'],
+                required: false
+            },
+            AutoMinorVersionUpgrade: {
+                type: ['boolean'],
+                required: false
+            },
+            AvailabilityZone: {
+                type: ['object', 'string'],
+                required: false
+            },
+            BackupRetentionPeriod: {
+                type: ['number'],
+                required: false
+            },
+            CACertificateIdentifier: {
+                type: ['object', 'string'],
+                required: false
+            },
+            CharacterSetName: {
+                type: ['string'],
+                required: false
+            },
+            CopyTagsToSnapshot: {
+                type: ['boolean'],
+                required: false
+            },
+            DBClusterIdentifier: {
+                type: ['object', 'string'],
+                required: false
+            },
+            DBInstanceClass: {
+                type: ['string', 'object'],
+                required: true
+            },
+            DBInstanceIdentifier: {
+                type: ['string'],
+                required: false
+            },
+            DBName: {
+                type: ['object', 'string'],
+                required: false
+            },
+            DBParameterGroupName: {
+                type: ['object', 'string'],
+                required: false
+            },
+            DBSecurityGroups: {
+                type: ['object'],
+                required: false
+            },
+            DBSnapshotIdentifier: {
+                type: ['object', 'string'],
+                required: false
+            },
+            DBSubnetGroupName: {
+                type: ['string'],
+                required: false
+            },
+            DeleteAutomatedBackups: {
+                type: ['boolean'],
+                required: false
+            },
+            DeletionProtection: {
+                type: ['boolean'],
+                required: false
+            },
+            Domain: {
+                type: ['string', 'object'],
+                required: false
+            },
+            DomainIAMRoleName: {
+                type: ['string', 'object'],
+                required: false
+            },
+            EnableCloudwatchLogsExports: {
+                type: ['object'],
+                required: false
+            },
+            EnableIAMDatabaseAuthentication: {
+                type: ['boolean'],
+                required: false
+            },
+            EnablePerformanceInsights: {
+                type: ['boolean'],
+                required: false
+            },
+            Engine: {
+                type: ['string'],
+                required: true
+            },
+            EngineVersion: {
+                type: ['string', 'object'],
+                required: false
+            },
+            Iops: {
+                type: ['number'],
+                required: false
+            },
+            KmsKeyId: {
+                type: ['string', 'object'],
+                required: false
+            },
+            LicenseModel: {
+                type: ['string'],
+                required: false
+            },
+            MasterUsername: {
+                type: ['string', 'object'],
+                required: true
+            },
+            MasterUserPassword: {
+                type: ['string', 'object'],
+                required: true
+            },
+            MaxAllocatedStorage: {
+                type: ['number'],
+                required: false
+            },
+            MonitoringInterval: {
+                type: ['number'],
+                required: false
+            },
+            MonitoringRoleArn: {
+                type: ['object', 'string'],
+                required: false
+            },
+            MultiAZ: {
+                type: ['boolean'],
+                required: false
+            },
+            OptionGroupName: {
+                type: ['string'],
+                required: false
+            },
+            PerformanceInsightsKMSKeyId: {
+                type: ['string'],
+                required: false
+            },
+            PerformanceInsightsRetentionPeriod: {
+                type: ['number'],
+                required: false
+            },
+            Port: {
+                type: ['string', 'object'],
+                required: false
+            },
+            PreferredBackupWindow: {
+                type: ['string'],
+                required: false
+            },
+            PreferredMaintenanceWindow: {
+                type: ['string'],
+                required: false
+            },
+            ProcessorFeatures: {
+                type: ['object'],
+                required: false
+            },
+            PromotionTier: {
+                type: ['number'],
+                required: false
+            },
+            PubliclyAccessible: {
+                type: ['boolean'],
+                required: false
+            },
+            SourceDBInstanceIdentifier: {
+                type: ['string'],
+                required: false
+            },
+            SourceRegion: {
+                type: ['string'],
+                required: false
+            },
+            StorageEncrypted: {
+                type: ['boolean'],
+                required: false
+            },
+            StorageType: {
+                type: ['object', 'string'],
+                required: false
+            },
+            Tags: {
+                type: ['object'],
+                required: false
+            },
+            Timezone: {
+                type: ['string'],
+                required: false
+            },
+            UseDefaultProcessorFeatures: {
+                type: ['boolean'],
+                required: false
+            },
+            VPCSecurityGroups: {
+                type: ['object'],
+                required: false
+            }
         }
     }
 }
