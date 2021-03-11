@@ -1097,6 +1097,24 @@ module.exports = {
                 type: ['string'],
                 required: false
             }
+        },
+        DBSubnetGroup: {
+            DBSubnetGroupDescription: {
+                type: ['string'],
+                required: true
+            },
+            DBSubnetGroupName: {
+                type: ['string'],
+                required: false
+            },
+            SubnetIds: {
+                type: ['object'],
+                required: true
+            },
+            Tags: {
+                type: ['object'],
+                required: false
+            }
         }
     }
 }
