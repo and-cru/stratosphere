@@ -1057,6 +1057,24 @@ module.exports = {
                 type: ['string'],
                 required: true
             }
+        },
+        DBSecurityGroup: {
+            DBSecurityGroupIngress: {
+                type: ['object'],
+                required: true
+            },
+            EC2VpcId: {
+                type: ['string', 'object'],
+                required: false
+            },
+            GroupDescription: {
+                type: ['string'],
+                required: true
+            },
+            Tags: {
+                type: ['object'],
+                required: false
+            }
         }
     }
 }
