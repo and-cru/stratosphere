@@ -1137,6 +1137,32 @@ module.exports = {
                 type: ['string'],
                 required: false
             }
+        },
+        GlobalCluster: {
+            DeletionProtection: {
+                type: ['boolean'],
+                required: false
+            },
+            Engine: {
+                type: ['string'],
+                required: false
+            },
+            EngineVersion: {
+                type: ['string'],
+                required: false
+            },
+            GlobalClusterIdentifier: {
+                type: ['string'],
+                required: false
+            },
+            SourceDBClusterIdentifier: {
+                type: ['string'],
+                required: false
+            },
+            StorageEncrypted: {
+                type: ['boolean'],
+                required: false
+            }
         }
     }
 }
