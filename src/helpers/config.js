@@ -1115,6 +1115,28 @@ module.exports = {
                 type: ['object'],
                 required: false
             }
+        },
+        EventSubscription: {
+            Enabled: {
+                type: ['boolean'],
+                required: false
+            },
+            EventCategories: {
+                type: ['object'],
+                required: false
+            },
+            SnsTopicArn: {
+                type: ['object', 'string'],
+                required: true
+            },
+            SourceIds: {
+                type: ['object'],
+                required: false
+            },
+            SourceType: {
+                type: ['string'],
+                required: false
+            }
         }
     }
 }
