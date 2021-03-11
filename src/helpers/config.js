@@ -1075,6 +1075,28 @@ module.exports = {
                 type: ['object'],
                 required: false
             }
+        },
+        DBSecurityGroupIngress: {
+            CIDRIP: {
+                type: ['string'],
+                required: false
+            },
+            DBSecurityGroupName: {
+                type: ['string', 'object'],
+                required: true
+            },
+            EC2SecurityGroupId: {
+                type: ['string'],
+                required: false
+            },
+            EC2SecurityGroupName: {
+                type: ['string'],
+                required: false
+            },
+            EC2SecurityGroupOwnerId: {
+                type: ['string'],
+                required: false
+            }
         }
     }
 }
