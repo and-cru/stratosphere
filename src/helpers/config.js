@@ -993,6 +993,48 @@ module.exports = {
                 type:  ['object'],
                 required: false
             }
+        },
+        DBProxy: {
+            Auth: {
+                type:  ['object'],
+                required: true
+            },
+            DBProxyName: {
+                type:  ['string'],
+                required: true
+            },
+            DebugLogging: {
+                type:  ['boolean'],
+                required: false
+            },
+            EngineFamily: {
+                type:  ['string'],
+                required: true
+            },
+            IdleClientTimeout: {
+                type:  ['number'],
+                required: false
+            },
+            RequireTLS: {
+                type:  ['boolean'],
+                required: false
+            },
+            RoleArn: {
+                type:  ['object', 'string'],
+                required: true
+            },
+            Tags: {
+                type:  ['object'],
+                required: false
+            },
+            VpcSecurityGroupIds: {
+                type:  ['object'],
+                required: false
+            },
+            VpcSubnetIds: {
+                type:  ['string', 'object'],
+                required: false
+            }
         }
     }
 }
