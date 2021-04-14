@@ -14,7 +14,7 @@ Stratosphere is a simple package which allows you to generate [CloudFormation](h
 
 ### Usage
 
-#### Install
+#### Install (WIP)
 
 With NPM
 
