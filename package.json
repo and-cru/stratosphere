@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/and-cru/stratosphere#readme",
   "dependencies": {
-    "js-yaml": "4.0.0",
+    "js-yaml": "4.1.0",
     "lodash": "4.17.21"
   },
   "devDependencies": {
